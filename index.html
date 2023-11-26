@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Dewan Engineering Works</title>
+</head>
+<body>
+
+<div class="container">
+    <<h1 class="main-heading">
+        <img src="logo.png" alt="Logo" class="logo">
+        <img src="logo2.png" alt="Logo" class="logo2">
+      </h1>
+
+    <div class="login-box">
+        <h2>Enter your Details here</h2>
+        <form method="POST" name="google-sheet">
+            <div class="user-box">
+                <input type="text" name="name" required="">
+                <label>Name</label>
+            </div>
+            <div class="user-box">
+                <input type="text" name="company_name" required="">
+                <label>Company Name</label>
+            </div>
+            <div class="user-box">
+                <input type="text" name="contact_no" required="">
+                <label>Contact No.</label>
+            </div>
+            <div class="user-box">
+                <input type="text" name="address" required="">
+                <label>Address</label>
+            </div>
+            <div class="user-box">
+                <input type="text" name="gst_no" required="">
+                <label>GST No.</label>
+            </div>
+            <div class="user-box">
+                <input type="text" name="remarks" required="">
+                <label>Remarks</label>
+            </div>
+            <button href="#" onclick="submitForm()" type="submit">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Submit
+            </button>
+        </form>
+    </div>
+</div>
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxaS_EmQAidThwvO-CmHLdsX_Z-rvKJtAkaa83G7E0tBt_KzTrBLK0lJicb7Wl6FnU2XA/exec'
+    const form = document.forms['google-sheet']
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => alert("Thanks for Contacting us..! We Will Contact You Soon..."))
+        .catch(error => console.error('Error!', error.message))
+    })
+</script>
+
+</body>
+</html>
